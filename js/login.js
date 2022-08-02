@@ -1,18 +1,18 @@
 // show password
-        const togglePassword=document.querySelector("#togglePassword");
-        const password=document.querySelector("#password");
-        togglePassword.addEventListener("click",function(e){
-        const type=password.getAttribute("type") === "password"?"text":"password";
-        password.setAttribute("type",type);
-        this.classList.toggle("fa-eye-slash");
-        }); 
+const togglePassword = document.querySelector("#togglePassword");
+const password = document.querySelector("#password");
+togglePassword.addEventListener("click", function (e) {
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
+    password.setAttribute("type", type);
+    this.classList.toggle("fa-eye-slash");
+});
 
 // Validation start
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     $.validator.setDefaults({
-        submitHandler: function() {
+        submitHandler: function () {
 
         }
     });
@@ -45,7 +45,7 @@ $(document).ready(function() {
 
     // Ajax start
 
-    $("#signin").click(function() {
+    $("#signin").click(function () {
 
         const email = $("#email").val();
         const password = $("#password").val();
@@ -59,7 +59,7 @@ $(document).ready(function() {
                 type: "post",
                 data: $("#signin-form").serialize(),
                 dataType: "JSON",
-                success: function(d) {
+                success: function (d) {
                     if (d.status == 'success') {
                         window.location = "home.html";
                     } else if (d.status == 'emailError') {
@@ -69,7 +69,6 @@ $(document).ready(function() {
                         $("#passError").html("Incorrect Password!");
                         $("#passError").css("color", "red");
                     }
-                    // $("#signin-form")[0].reset();
                 }
 
             });

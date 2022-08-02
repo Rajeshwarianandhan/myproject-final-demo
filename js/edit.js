@@ -1,17 +1,17 @@
-let request = new XMLHttpRequest();
-request.open("POST", "./php/home.php");
-request.send();
-request.onreadystatechange = function() {
-    if (request.readyState === 4 && request.status === 200) {
+$(document).ready(function () {
 
-        user = JSON.parse(request.responseText);
+    $.ajax({
+        url: "./php/home.php",
+        type: "post",
+        dataType: "JSON",
+        success: function (user) {
+            $("#fname").val(user.fname);
+            $("#lname").val(user.lname);
+            $("#email").val(user.email);
+            $("#password").val(user.password);
+            $("#mobile").val(user.mobile);
+            $("#dob").val(user.dob);
+        }
+    });
 
-        document.getElementById("fname").setAttribute('value', user.fname);
-        document.getElementById("lname").setAttribute('value', user.lname);
-        document.getElementById("email").setAttribute('value', user.email);
-        document.getElementById("password").setAttribute('value', user.password);
-        document.getElementById("mobile").setAttribute('value', user.mobile);
-        document.getElementById("dob").setAttribute('value', user.dob);
-
-    }
-}
+});

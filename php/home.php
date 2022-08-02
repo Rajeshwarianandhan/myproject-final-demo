@@ -1,10 +1,5 @@
 <?php
 
-header("Access-Control-Allow-Methods: GET,POST,PUT,PATCH,DELETE");
-header('Access-Control-Allow-Credentials: true');
-header('Content-Type: plain/text');
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Methods,Access-Control-Allow-Origin, Access-Control-Allow-Credentials, Authorization, X-Requested-With");
-
 include "config.php";
 
 $user = new stdClass();

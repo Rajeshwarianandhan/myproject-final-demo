@@ -139,7 +139,6 @@ $(document).ready(function () {
                         $("#email_msg").html("Email already exist");
                         $("#email_msg").css("color", "red");
                     }
-                    // $("#form")[0].reset();
                 }
             });
         }
